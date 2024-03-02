@@ -6,12 +6,12 @@ ln -s ~/.tfenv/bin/* ~/bin/
 tfenv install 1.2.5
 tfenv use 1.2.5
 
-user=$(aws sts get-caller-identity --query Arn --output text | cut -d '/' -f 2))
+user=$(aws sts get-caller-identity --query Arn --output text | cut -d '/' -f 2)
 sed -i "s/CUSTOM-USERNAME/$user/" terraform/nodes.tf 
 
 git clone https://github.com/guragainroshan0/certified-kubernetes-administrator-course
 
-cd certified-kubernetes-administrator-course/managed-clusters/eks
+cd terraform/
 terraform init
 terraform plan
 terraform apply -auto-approve
