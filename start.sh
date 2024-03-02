@@ -9,7 +9,7 @@ tfenv use 1.2.5
 user=$(aws sts get-caller-identity --query Arn --output text | cut -d '/' -f 2)
 sed -i "s/CUSTOM-USERNAME/$user/" terraform/nodes.tf 
 
-git clone https://github.com/guragainroshan0/certified-kubernetes-administrator-course
+#git clone https://github.com/guragainroshan0/certified-kubernetes-administrator-course
 
 cd terraform/
 terraform init
