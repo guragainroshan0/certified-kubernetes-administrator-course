@@ -18,7 +18,7 @@ terraform apply -auto-approve
 
 
 # create kubeconfig
-aws eks update-kubeconfig --region eu-west-1 --name demo-eks
+aws eks update-kubeconfig --region us-east-1 --name demo-eks
 
 # add node as worker node
 curl -O https://s3.us-west-2.amazonaws.com/amazon-eks/cloudformation/2020-10-29/aws-auth-cm.yaml
