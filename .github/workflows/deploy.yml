@@ -22,13 +22,6 @@ jobs:
       # Checkout the github repo
       - uses: actions/checkout@v4
 
-      - name: Update the apt repo and install aws cli
-        run: | 
-          apt update && apt install curl unzip -y
-          curl "https://awscli.amazonaws.com/awscli-exe-linux-x86_64.zip" -o "awscliv2.zip" 
-          unzip awscliv2.zip 
-          ./aws/install 
-
       # Run the shell script to perform all the actitivies
       - name: Run a one-line script
         env:
